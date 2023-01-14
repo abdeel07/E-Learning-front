@@ -1,0 +1,130 @@
+<div class="blog-wrapper">
+    <div class="content-wrapper container-xxl p-0">
+  
+      <div class="content-detached content-left">
+        <div class="content-body">
+          <!-- Blog Detail -->
+          <div class="blog-detail-wrapper">
+            <div class="row">
+              <!-- Blog -->
+              <div class="col-12">
+                <div class="card">
+                  <img [src]="cours.img" class="img-fluid card-img-top" alt="Cours Detail Pic" />
+                  <div class="card-body">
+                    <h4 class="card-title">{{ cours.title }}</h4>
+                    
+                    <div class="my-1 py-25">
+                      <a href="javascript:void(0);" *ngFor="let skill of cours.skills">
+                        <div
+                          class="badge badge-pill mr-50"
+                          [ngClass]="{
+                            'bg-light-info': skill.title === 'Web',
+                            'bg-light-primary': skill.title === 'Mobile',
+                            'bg-light-danger': skill.title === 'UML',
+                            'bg-light-warning': skill.title === 'Algo',
+                            'bg-light-success': skill.title === 'Network'
+                          }"
+                        >
+                          {{ skill.title }}
+                        </div>
+                      </a>
+                    </div>
+                    <p class="card-text mb-2" [innerHTML]="cours.description"></p>
+                    
+                    <hr class="my-2" />
+                    <div class="d-flex align-items-center justify-content-between">
+                      <div class="d-flex align-items-center">
+                        <div class="d-flex align-items-center mr-1">
+                          <a href="javascript:void(0);" class="mr-50">
+                            <i data-feather="message-square" class="font-medium-5 text-body align-middle"></i>
+                          </a>
+                          <a href="javascript:void(0);">
+                            <div class="text-body align-middle">{{ cours.comments.length }}</div>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!--/ Blog -->
+  
+              <!-- Blog Comment -->
+              <div class="col-12 mt-1" id="blogComment">
+                <h6 class="section-label mt-25">Comment</h6>
+                <div class="card" *ngFor="let comment of cours.comments">
+                  <div class="card-body">
+                    <div class="media">
+                      <div class="avatar mr-75">
+                        <img src="/src/assets/images/user.png" width="38" height="38" alt="Avatar" />
+                      </div>
+                      <div class="media-body">
+                        <h6 class="font-weight-bolder mb-25">{{ comment.username }}</h6>
+                        <p class="card-text">{{ comment.email }}</p>
+                        <p class="card-text">{{ comment.content }}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!--/ Blog Comment -->
+  
+              <!-- Leave a Blog Comment -->
+              <div class="col-12 mt-1">
+                <h6 class="section-label mt-25">Leave a Comment</h6>
+                <div class="card">
+                  <div class="card-body">
+                    <form [formGroup]="commentForm"  class="form" (ngSubmit)="onSubmit()">
+                      <div class="row">
+                        <div class="col-sm-6 col-12">
+                          <div class="form-group mb-2">
+                            <input 
+                            name="username"
+                            type="text" 
+                            class="form-control" 
+                            placeholder="Name" 
+                            formControlName="username"
+                            required
+                            />
+                          </div>
+                        </div>
+                        <div class="col-sm-6 col-12">
+                          <div class="form-group mb-2">
+                            <input 
+                            name="email"
+                            type="email" 
+                            class="form-control" 
+                            placeholder="Email" 
+                            formControlName="email" 
+                            ngModel
+                            />
+                          </div>
+                        </div>
+                        <div class="col-12">
+                          <textarea 
+                            name="content"
+                            class="form-control mb-2" 
+                            rows="4" 
+                            placeholder="Comment" 
+                            formControlName="content"
+                            required
+                            ngModel
+                          ></textarea>
+                        </div>
+                        <div class="col-12">
+                          <button type="submit" class="btn btn-primary" rippleEffect>Post Comment</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <!--/ Leave a Blog Comment -->
+            </div>
+          </div>
+          <!--/ Blog Detail -->
+        </div>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,96 @@
+<div class="content-wrapper container-xxl p-0">
+    <div class="content-body">
+  
+      <!-- Blog Edit -->
+      <div class="blog-edit-wrapper">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-body">
+                <!-- Form -->
+                <form (ngSubmit)="onSubmit()" class="mt-2">
+                  <div class="row">
+                    <div class="col-md-6 col-12">
+                      <div class="form-group mb-2">
+                        <label for="blog-edit-title">Title</label>
+                        <input
+                          type="text"
+                          id="blog-edit-title"
+                          name="blog-edit-title"
+                          class="form-control"
+                          [(ngModel)]="cours.title"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-6 col-12">
+                      <div class="form-group mb-2">
+                        <label for="blog-edit-category">Skills</label>
+  
+                        <ng-select
+                          [items]="skills"
+                          [multiple]="true"
+                          [closeOnSelect]="false"
+                          [searchable]="true"
+                          bindLabel="name"
+                          placeholder="Select skills"
+                          [(ngModel)]="cours.skills"
+                          name="selectTitle"
+                        >
+                        </ng-select>
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <div class="form-group mb-2">
+                        <label>Content</label>
+                        <quill-editor [(ngModel)]="cours.description" name="quill-content"> </quill-editor>
+                      </div>
+                    </div>
+                    <div class="col-12 mb-2">
+                      <div class="border rounded p-2">
+                        <h4 class="mb-1">Cours Image</h4>
+                        <div class="media flex-column flex-md-row">
+                          <img
+                            [src]="cours.img"
+                            id="blog-feature-image"
+                            class="rounded mr-2 mb-1 mb-md-0"
+                            width="170"
+                            height="110"
+                            alt="Cours Featured Image"
+                          />
+                          <div class="media-body">
+                            <small class="text-muted">Required image resolution 800x400, image size 10mb.</small>
+                            
+                            <div class="d-inline-block">
+                              <div class="form-group mb-0">
+                                <div class="custom-file">
+                                  <input
+                                    type="file"
+                                    class="custom-file-input"
+                                    id="blogCustomFile"
+                                    accept="image/*"
+                                    (change)="uploadImage($event)"
+                                  />
+                                  <label class="custom-file-label" for="blogCustomFile">Choose Img</label>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12 mt-50">
+                      <button type="submit" class="btn btn-primary mr-1" rippleEffect>Save Changes</button>
+                      <button type="reset" class="btn btn-outline-secondary" rippleEffect>Cancel</button>
+                    </div>
+                  </div>
+                </form>
+                <!--/ Form -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--/ Blog Edit -->
+    </div>
+  </div>
+  
