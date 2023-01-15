@@ -20,4 +20,16 @@ export class CommentService {
   addComment(comment: Comment): Observable<Comment> {
     return this.httpClient.post<Comment>(`${baseUrl}`, comment);
   }
+
+  getCount(): Observable<number> {
+    return this.httpClient.get<number>(`${baseUrl}count`);
+  }
+
+  getPositive(): Observable<number> {
+    return this.httpClient.get<number>(`${baseUrl}positive`);
+  }
+
+  getNegative(): Observable<number> {
+    return this.httpClient.get<number>(`${baseUrl}negative`);
+  }
 }

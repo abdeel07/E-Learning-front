@@ -36,4 +36,16 @@ export class CoursService {
   deleteCourse(id: number): Observable<any> {
     return this.httpClient.delete<any>(`${baseUrl}${id}`);
   }
+
+  getCount(): Observable<number>{
+    return this.httpClient.get<number>(`${baseUrl}`);
+  }
+
+  getCountP(): Observable<number>{
+    return this.httpClient.get<number>(`${baseUrl}positive`);
+  }
+
+  getCountN(): Observable<number>{
+    return this.httpClient.get<number>(`${baseUrl}negative`);
+  }
 }
