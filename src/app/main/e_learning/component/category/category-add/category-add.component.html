@@ -25,7 +25,13 @@
                     <div class="col-12">
                       <div class="form-group mb-2">
                         <label>Description</label>
-                        <textarea [(ngModel)]="category.description" name="description" id="description" cols="30" rows="10"></textarea>
+                        <input
+                          type="text"
+                          id="blog-edit-title"
+                          name="blog-edit-decription"
+                          class="form-control"
+                          [(ngModel)]="category.description"
+                        />
                       </div>
                     </div>
                     <div class="col-12 mb-2">
