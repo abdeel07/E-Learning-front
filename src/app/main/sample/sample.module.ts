@@ -23,7 +23,7 @@ const routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'category',
     pathMatch: 'full'
   }
 ];

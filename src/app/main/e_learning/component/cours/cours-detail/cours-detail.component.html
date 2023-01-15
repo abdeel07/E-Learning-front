@@ -62,6 +62,13 @@
                         <h6 class="font-weight-bolder mb-25">{{ comment.username }}</h6>
                         <p class="card-text">{{ comment.email }}</p>
                         <p class="card-text">{{ comment.content }}</p>
+                        <div *ngIf="number(comment.score)>0; else dislike">
+                          <img src="/src/assets/images/like.png" width="38" height="38" alt="like" />
+                        </div>
+                        
+                        <ng-template #dislike>
+                          <img src="/src/assets/images/dislike.png" width="38" height="38" alt="dislike" />
+                        </ng-template>
                       </div>
                     </div>
                   </div>

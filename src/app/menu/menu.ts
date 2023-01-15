@@ -2,45 +2,38 @@ import { CoreMenu } from "@core/types";
 
 export const menu: CoreMenu[] = [
   {
-    id: "home",
-    title: "MENU.HOME",
+    id: "category",
+    title: "Categories",
     type: "item",
     icon: "home",
-    url: "home",
+    url: "category",
   },
   {
-    id: "category",
-    title: "MENU.Category",
+    id: "administrator",
+    title: "Administrator",
     type: "collapsible",
     icon: "shopping-cart",
     children: [
       {
-        id: 'shop',
-        title: 'Shop',
+        id: 'cours',
+        title: 'Add Cours',
         type: 'item',
-        icon: 'circle',
-        url: "shop",
+        icon: 'shopping-cart',
+        url: "cours/add",
       },
       {
-        id: 'details',
-        title: 'Details',
+        id: 'categoryAdd',
+        title: 'Add Category',
         type: 'item',
         icon: 'circle',
-        url: "home",
+        url: "category/add",
       },
       {
-        id: 'wishList',
-        title: 'Wish List',
+        id: 'skill',
+        title: 'Skills',
         type: 'item',
         icon: 'circle',
-        url: "home",
-      },
-      {
-        id: 'checkout',
-        title: 'Checkout',
-        type: 'item',
-        icon: 'circle',
-        url: "home",
+        url: "skill",
       }
     ]
   }

@@ -33,9 +33,16 @@ import { DashboardComponent } from './main/e_learning/component/dashboard/dashbo
 
 const appRoutes: Routes = [
   {
-    path: "pages",
-    loadChildren: () =>
-      import("./main/pages/pages.module").then((m) => m.PagesModule),
+    path: 'category',
+    component: CategoryListComponent
+  },
+  {
+    path: 'category/add',
+    component: CategoryAddComponent,
+  },
+  {
+    path: 'category/:category_id',
+    component: CategoryEditComponent,
   },
   {
     path: "dash",
@@ -50,12 +57,12 @@ const appRoutes: Routes = [
     component: CoursAddComponent,
   },
   {
-    path: 'category',
-    component: CategoryListComponent
+    path: 'cours/edit/:cours_id',
+    component: CoursEditComponent,
   },
   {
-    path: 'category/add',
-    component: CategoryAddComponent,
+    path: 'cours/:cours_id',
+    component: CoursDetailComponent,
   },
   {
     path: 'skill',
