@@ -21,6 +21,10 @@ export class CategoryService {
     return this.httpClient.get<Category[]>(`${baseUrl}?title=${title}`);
   }
 
+  getCategory(id : number): Observable<Category> {
+    return this.httpClient.get<Category>(`${baseUrl}${id}`);
+  }
+
   addCategory(category : Category): Observable<Category> {
     return this.httpClient.post<Category>(`${baseUrl}`, category);
   }

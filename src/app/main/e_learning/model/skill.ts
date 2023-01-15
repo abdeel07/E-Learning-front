@@ -1,10 +1,10 @@
 export class Skill {
-    idSkill : number;
+    id : number;
     title : string; 
  
     constructor(idSkill : number , title : string  ){
 
-        this.idSkill = idSkill;
+        this.id = idSkill;
         this.title = title;
     }
 }

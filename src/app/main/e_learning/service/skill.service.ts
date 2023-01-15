@@ -17,6 +17,10 @@ export class SkillService {
     return this.httpClient.get<Skill[]>(`${baseUrl}`);
   }
 
+  getByTitle(title : string): Observable<Skill[]> {
+    return this.httpClient.get<Skill[]>(`${baseUrl}?title=${title}`);
+  }
+
   getSkill(id: number): Observable<Skill>{
     return this.httpClient.get<Skill>(`${baseUrl}${id}`);
   }

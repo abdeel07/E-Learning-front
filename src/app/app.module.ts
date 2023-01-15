@@ -14,6 +14,8 @@ import { AppComponent } from "app/app.component";
 import { LayoutModule } from "app/layout/layout.module";
 import { SampleModule } from "app/main/sample/sample.module";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { NgApexchartsModule } from 'ng-apexcharts';
 
 import { CommonModule, DatePipe } from "@angular/common";
 import { CoursDetailComponent } from "./main/e_learning/component/cours/cours-detail/cours-detail.component";
@@ -24,6 +26,9 @@ import { CategoryListComponent } from "./main/e_learning/component/category/cate
 import { CategoryAddComponent } from "./main/e_learning/component/category/category-add/category-add.component";
 import { SkillListComponent } from "./main/e_learning/component/skill/skill-list/skill-list.component";
 import { NgSelectModule } from "@ng-select/ng-select";
+import { NgxDatatableModule } from "@swimlane/ngx-datatable";
+import { CategoryEditComponent } from './main/e_learning/component/category/category-edit/category-edit.component';
+import { DashboardComponent } from './main/e_learning/component/dashboard/dashboard.component';
 
 
 const appRoutes: Routes = [
@@ -33,9 +38,8 @@ const appRoutes: Routes = [
       import("./main/pages/pages.module").then((m) => m.PagesModule),
   },
   {
-    path: "home",
-    redirectTo: "home",
-    pathMatch: "full",
+    path: "dash",
+    component: DashboardComponent
   },
   {
     path: 'cours',
@@ -68,7 +72,9 @@ const appRoutes: Routes = [
     CoursAddComponent,
     CoursEditComponent,
     CoursDetailComponent,
-    SkillListComponent
+    SkillListComponent,
+    CategoryEditComponent,
+    DashboardComponent
   ],
   imports: [
     CommonModule,
@@ -101,6 +107,10 @@ const appRoutes: Routes = [
     SampleModule,
 
     ReactiveFormsModule,
+    NgxDatatableModule,
+    NgApexchartsModule,
+    
+    SweetAlert2Module.forRoot()
   ],
 
 

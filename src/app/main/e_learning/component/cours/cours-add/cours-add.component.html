@@ -39,6 +39,23 @@
                         </ng-select>
                       </div>
                     </div>
+                    <div class="col-md-6 col-12">
+                      <div class="form-group mb-2">
+                        <label for="blog-edit-category">Category</label>
+  
+                        <ng-select
+                          [items]="categories"
+                          [multiple]="false"
+                          [closeOnSelect]="true"
+                          [searchable]="true"
+                          bindLabel="name"
+                          placeholder="Select category"
+                          [(ngModel)]="cours.category"
+                          name="selectTitle"
+                        >
+                        </ng-select>
+                      </div>
+                    </div>
                     <div class="col-12">
                       <div class="form-group mb-2">
                         <label>Content</label>

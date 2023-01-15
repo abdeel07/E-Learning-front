@@ -73,4 +73,17 @@ export class CoursEditComponent implements OnInit {
     )
   }
 
+  deleteCours(){
+    this.coursService.deleteCourse(this.coursId).subscribe(
+      {
+        next: (response: any) => {
+          //Toast
+        },
+        error: (err) => {
+          console.error(err);
+        }
+      }
+    )
+  }
+
 }

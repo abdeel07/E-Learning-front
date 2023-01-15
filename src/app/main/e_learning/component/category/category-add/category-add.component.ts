@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Category } from 'app/main/e_learning/model/category';
+import { CategoryService } from 'app/main/e_learning/service/category.service';
 
 @Component({
   selector: 'app-category-add',
@@ -7,9 +9,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CategoryAddComponent implements OnInit {
 
-  constructor() { }
+  category : Category;
+
+  constructor(
+    private categoryService: CategoryService
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  onSubmit(){
+    this.categoryService.addCategory(this.category).subscribe(
+      {
+        next : (response : any) => {
+          //toast
+        },
+        error: (err) => {
+          console.error(err);
+        }
+      }
+    );
+  }
+
+  uploadImage($event){
+    
   }
 
 }
