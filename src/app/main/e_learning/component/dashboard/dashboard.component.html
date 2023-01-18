@@ -82,7 +82,7 @@
                     type="text" 
                     class="form-control" 
                     placeholder="Search by Cours ID" 
-                    [(ngModel)]="searchText" 
+                    [(ngModel)]="searchID" 
                     (ngModelChange)="getCours()" 
                 />
                 <div class="input-group-append">
@@ -100,8 +100,11 @@
       
                       <ngb-progressbar
                         type="primary"
-                        [height]="'6px'"
+                        [height]="'10px'"
                         [value]="avgP"
+                        animated="true"
+                        striped="true"
+                        showValue="true"
                       ></ngb-progressbar>
                     </div>
                     <div class="col-6">
@@ -109,8 +112,11 @@
       
                       <ngb-progressbar
                         type="danger"
-                        [height]="'6px'"
+                        [height]="'10px'"
                         [value]="avgN"
+                        animated="true"
+                        striped="true"
+                        showValue="true"
                       ></ngb-progressbar>
                     </div>
                   </div>

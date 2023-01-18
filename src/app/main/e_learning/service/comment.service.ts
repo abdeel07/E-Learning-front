@@ -22,7 +22,7 @@ export class CommentService {
   }
 
   getCount(): Observable<number> {
-    return this.httpClient.get<number>(`${baseUrl}count`);
+    return this.httpClient.get<number>(`${baseUrl}total`);
   }
 
   getPositive(): Observable<number> {
@@ -31,5 +31,13 @@ export class CommentService {
 
   getNegative(): Observable<number> {
     return this.httpClient.get<number>(`${baseUrl}negative`);
+  }
+
+  getCoursP(id: number): Observable<number>{
+    return this.httpClient.get<number>(`${baseUrl}possitive/${id}`);
+  }
+
+  getCoursN(id: number): Observable<number>{
+    return this.httpClient.get<number>(`${baseUrl}negative/${id}`);
   }
 }

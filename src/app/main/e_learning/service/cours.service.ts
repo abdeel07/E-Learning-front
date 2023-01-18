@@ -38,14 +38,6 @@ export class CoursService {
   }
 
   getCount(): Observable<number>{
-    return this.httpClient.get<number>(`${baseUrl}`);
-  }
-
-  getCountP(): Observable<number>{
-    return this.httpClient.get<number>(`${baseUrl}possitive`);
-  }
-
-  getCountN(): Observable<number>{
-    return this.httpClient.get<number>(`${baseUrl}negative`);
+    return this.httpClient.get<number>(`${baseUrl}total`);
   }
 }

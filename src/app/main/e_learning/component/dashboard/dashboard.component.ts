@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { colors } from 'app/colors.const';
+import { CommentService } from '../../service/comment.service';
+import { CoursService } from '../../service/cours.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,35 +15,119 @@ export class DashboardComponent implements OnInit {
   positive : number;
   negative : number;
 
-  searchText : string;
+  searchID : string;
 
-  constructor() {
-
-  }
+  constructor(
+    private commentService: CommentService,
+    private coursService: CoursService
+  ) {  }
 
   ngOnInit(): void {
-    this.coursCount = 20;
-    this.commentCount = 100;
-    this.positive = 90;
-    this.negative = 10;
-
+    this.getCoursCount();
+    this.getCommentsCount();
+    this.getCommentsP();
+    this.getCommentsN();
 
     this.getCours();
   }
 
   coursP : number;
   coursN : number;
-  avgP : number = 50;
+  avgP : number;
   avgN : number;
   total : number;
   getCours(){
-    this.coursP = 20;
-    this.coursN = 6;
-    this.total = this.coursN + this.coursP;
-    this.avgP = (this.coursP / this.total) * 100;
-    this.avgN = (this.coursN / this.total) * 100;
+
+    if(this.searchID != ""){
+      this.getCoursN();
+      this.getCoursP();
+
+      this.total = this.coursN + this.coursP;
+      this.avgP = (this.coursP / this.total) * 100;
+      this.avgN = (this.coursN / this.total) * 100;
+    }
+    else {
+      this.avgP = 0;
+      this.avgN = 0;
+    }
   }
 
-  
+  getCoursCount(){
+    this.coursService.getCount().subscribe(
+      {
+        next: (response) => {
+          this.coursCount = response;
+        },
+        error: (err) => {
+          console.log(err);
+        }
+      }
+    )
+  }
+
+  getCommentsCount(){
+    this.commentService.getCount().subscribe(
+      {
+        next: (response) => {
+          this.commentCount = response;
+        },
+        error: (err) => {
+          console.log(err);
+        }
+      }
+    )
+  }
+
+  getCommentsP(){
+    this.commentService.getPositive().subscribe(
+      {
+        next: (response) => {
+          this.positive = response;
+        },
+        error: (err) => {
+          console.log(err);
+        }
+      }
+    )
+  }
+
+  getCommentsN(){
+    this.commentService.getNegative().subscribe(
+      {
+        next: (response) => {
+          this.negative = response;
+        },
+        error: (err) => {
+          console.log(err);
+        }
+      }
+    )
+  }
+
+  getCoursP(){
+    this.commentService.getCoursP(Number(this.searchID)).subscribe(
+      {
+        next: (response) => {
+          this.coursP = response;
+        },
+        error: (err) => {
+          console.error(err);
+        }
+      }
+    )
+  }
+
+  getCoursN(){
+    this.commentService.getCoursN(Number(this.searchID)).subscribe(
+      {
+        next: (response) => {
+          this.coursN = response;
+        },
+        error: (err) => {
+          console.error(err);
+        }
+      }
+    )
+  }
 }
 
