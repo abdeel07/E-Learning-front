@@ -12,6 +12,8 @@ export const environment = {
   apiComment: 'https://localhost:7192/api/comments/',
   apiCours: 'https://localhost:7192/api/cours/',
   apiSkill: 'https://localhost:7192/api/skills/',
+
+  isAuth: false,
 };
 
 /*

@@ -1,6 +1,10 @@
 import { CoreMenu } from "@core/types";
+import { environment } from 'environments/environment';
 
-export const menu: CoreMenu[] = [
+if(environment.isAuth == true){
+    
+}
+const menuA: CoreMenu[] = [
   {
     id: "category",
     title: "Categories",
@@ -45,3 +49,15 @@ export const menu: CoreMenu[] = [
     ]
   }
 ];
+
+const menuC: CoreMenu[] = [
+  {
+    id: "category",
+    title: "Categories",
+    type: "item",
+    icon: "home",
+    url: "category",
+  }
+];
+export const menu: CoreMenu[] = (environment.isAuth ? menuC : menuA)
+

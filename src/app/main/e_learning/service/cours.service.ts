@@ -14,7 +14,7 @@ export class CoursService {
   constructor(private httpClient: HttpClient) { }
 
   getCourses(id: number): Observable<Cours[]> {
-    return this.httpClient.get<Cours[]>(`${baseUrl}?category=${id}`);
+    return this.httpClient.get<Cours[]>(`${baseUrl}category/${id}`);
   }
 
   getByTitle(title: string): Observable<Cours[]> {
@@ -29,8 +29,8 @@ export class CoursService {
     return this.httpClient.post<Cours>(`${baseUrl}`, course);
   }
 
-  updateCourse(id: number, course: Cours): Observable<Cours> {
-    return this.httpClient.put<Cours>(`${baseUrl}${id}`, course);
+  updateCourse(id: number, cours: Cours): Observable<Cours> {
+    return this.httpClient.put<Cours>(`${baseUrl}${id}`, cours);
   }
 
   deleteCourse(id: number): Observable<any> {

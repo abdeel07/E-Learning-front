@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Category } from 'app/main/e_learning/model/category';
 import { CategoryService } from 'app/main/e_learning/service/category.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-category-add',
@@ -17,7 +18,8 @@ export class CategoryAddComponent implements OnInit {
   };
 
   constructor(
-    private categoryService: CategoryService
+    private categoryService: CategoryService,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -28,7 +30,7 @@ export class CategoryAddComponent implements OnInit {
     this.categoryService.addCategory(this.category).subscribe(
       {
         next : (response : any) => {
-          //toast
+          this.toastrSuccess(" Added !! ");
           this.category = response;
         },
         error: (err) => {
@@ -42,4 +44,10 @@ export class CategoryAddComponent implements OnInit {
     
   }
 
+  toastrSuccess(message: string) {
+    this.toastr.success('👋 ' + message, 'Success!', {
+      toastClass: 'toast ngx-toastr',
+      positionClass: 'toast-top-right'
+    });
+  }
 }

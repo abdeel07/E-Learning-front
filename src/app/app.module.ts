@@ -30,9 +30,14 @@ import { NgSelectModule } from "@ng-select/ng-select";
 import { NgxDatatableModule } from "@swimlane/ngx-datatable";
 import { CategoryEditComponent } from './main/e_learning/component/category/category-edit/category-edit.component';
 import { DashboardComponent } from './main/e_learning/component/dashboard/dashboard.component';
+import { AuthComponent } from './main/e_learning/component/auth/auth/auth.component';
 
 
 const appRoutes: Routes = [
+  {
+    path: 'auth',
+    component: AuthComponent
+  },
   {
     path: 'category',
     component: CategoryListComponent
@@ -86,7 +91,8 @@ const appRoutes: Routes = [
     CoursDetailComponent,
     SkillListComponent,
     CategoryEditComponent,
-    DashboardComponent
+    DashboardComponent,
+    AuthComponent
   ],
   imports: [
     CommonModule,

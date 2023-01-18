@@ -6,6 +6,7 @@ import { Skill } from 'app/main/e_learning/model/skill';
 import { CoursService } from 'app/main/e_learning/service/cours.service';
 import { SkillService } from 'app/main/e_learning/service/skill.service';
 import { repeaterAnimation } from '../cours-add/cours-add.animation';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-cours-edit',
@@ -23,7 +24,8 @@ export class CoursEditComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private coursService : CoursService,
-    private skillService : SkillService
+    private skillService : SkillService,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -67,7 +69,7 @@ export class CoursEditComponent implements OnInit {
     this.coursService.updateCourse(this.coursId, this.cours).subscribe(
       {
         next: (response: any) => {
-          //Toast
+          this.toastrSuccess(" Updated !! ");
         },
         error: (err) => {
           console.error(err);
@@ -89,4 +91,10 @@ export class CoursEditComponent implements OnInit {
     )
   }
 
+  toastrSuccess(message: string) {
+    this.toastr.success('👋 ' + message, 'Success!', {
+      toastClass: 'toast ngx-toastr',
+      positionClass: 'toast-top-right'
+    });
+  }
 }

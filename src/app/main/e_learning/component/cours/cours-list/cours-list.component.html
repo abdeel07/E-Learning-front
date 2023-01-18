@@ -9,7 +9,12 @@
               <div class="col-md-6 col-12" *ngFor="let cours of courses">
                 <div class="card">
                   <a routerLink="/cours/{{ cours.id }}">
-                    <img class="card-img-top img-fluid" [src]="cours.img" alt="Blog Post pic" />
+                    <img class="card-img-top img-fluid"
+                     src="/assets/images/{{ cours.title }}.png" 
+                     alt="Blog Post pic" 
+                     width="500"
+                     height="250"
+                     />
                   </a>
                   <div class="card-body">
                     <h4 class="card-title">
@@ -35,7 +40,6 @@
                         </div>
                       </a>
                     </div>
-                    <p class="card-text blog-content-truncate">{{ cours.description }}</p>
                     <hr />
                     <div class="d-flex justify-content-between align-items-center">
                       <a routerLink="/cours/{{ cours.id }}">
