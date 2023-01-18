@@ -5,12 +5,15 @@ import { Cours } from 'app/main/e_learning/model/cours';
 import { Skill } from 'app/main/e_learning/model/skill';
 import { CoursService } from 'app/main/e_learning/service/cours.service';
 import { SkillService } from 'app/main/e_learning/service/skill.service';
+import { repeaterAnimation } from '../cours-add/cours-add.animation';
 
 @Component({
   selector: 'app-cours-edit',
   templateUrl: './cours-edit.component.html',
   styleUrls: ['./cours-edit.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
+  animations: [repeaterAnimation]
+  
 })
 export class CoursEditComponent implements OnInit {
   coursId: number = this.route.snapshot.params["cours_id"];

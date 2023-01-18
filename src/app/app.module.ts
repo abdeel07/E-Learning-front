@@ -16,6 +16,7 @@ import { SampleModule } from "app/main/sample/sample.module";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { NgApexchartsModule } from 'ng-apexcharts';
+import { QuillModule } from 'ngx-quill';
 
 import { CommonModule, DatePipe } from "@angular/common";
 import { CoursDetailComponent } from "./main/e_learning/component/cours/cours-detail/cours-detail.component";
@@ -41,8 +42,12 @@ const appRoutes: Routes = [
     component: CategoryAddComponent,
   },
   {
+    path: 'category/edit/:category_id',
+    component: CategoryAddComponent,
+  },
+  {
     path: 'category/:category_id',
-    component: CategoryEditComponent,
+    component: CoursListComponent,
   },
   {
     path: "dash",
@@ -87,6 +92,7 @@ const appRoutes: Routes = [
     CommonModule,
     FormsModule,
     NgSelectModule,
+    QuillModule.forRoot(),
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,

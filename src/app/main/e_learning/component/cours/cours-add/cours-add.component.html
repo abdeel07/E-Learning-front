@@ -27,33 +27,36 @@
                         <label for="blog-edit-category">Skills</label>
   
                         <ng-select
-                          [items]="skills"
+                          [(ngModel)]="cours.skills"
                           [multiple]="true"
                           [closeOnSelect]="false"
-                          [searchable]="true"
-                          bindLabel="name"
-                          placeholder="Select skills"
-                          [(ngModel)]="cours.skills"
-                          name="selectTitle"
+                          placeholder="Select Skill"
                         >
+                          <ng-option *ngFor="let skill of skills" 
+                            [value]="skill.id"
+                          >
+                            {{skill.title}}
+                          </ng-option>
+                        
                         </ng-select>
+                        
+                       
                       </div>
                     </div>
                     <div class="col-md-6 col-12">
                       <div class="form-group mb-2">
                         <label for="blog-edit-category">Category</label>
   
-                        <ng-select
-                          [items]="categories"
-                          [multiple]="false"
-                          [closeOnSelect]="true"
-                          [searchable]="true"
-                          bindLabel="name"
-                          placeholder="Select category"
-                          [(ngModel)]="cours.category"
-                          name="selectTitle"
+                        <select
+                        class="form-control"
+                        [(ngModel)]="cours.categoryId"
+                        id="blog-edit-status"
+                        name="blog-edit-status"
                         >
-                        </ng-select>
+                        <option *ngFor="let category of categories" value="{{ category.id }}">{{ category.title }}</option>
+                        </select>
+
+                        
                       </div>
                     </div>
                     <div class="col-12">

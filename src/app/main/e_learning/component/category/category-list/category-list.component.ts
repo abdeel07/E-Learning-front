@@ -32,15 +32,19 @@ export class CategoryListComponent implements OnInit {
   }
 
   getByTitle(){
-    this.categoryService.getByTitle(this.searchText).subscribe(
-      {
-        next: (data: any) => {
-          this.categories = data;
-        },
-        error:(err) => {
-            console.log(err);
-        },
-      }
-    )
+    if(this.searchText != ""){
+      this.categoryService.getByTitle(this.searchText).subscribe(
+        {
+          next: (data: any) => {
+            this.categories = data;
+          },
+          error:(err) => {
+              console.log(err);
+          },
+        }
+      )
+    }
+    else
+      this.getCategories();
   }
 }

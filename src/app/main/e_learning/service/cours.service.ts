@@ -18,7 +18,7 @@ export class CoursService {
   }
 
   getByTitle(title: string): Observable<Cours[]> {
-    return this.httpClient.get<Cours[]>(`${baseUrl}?title=${title}`);
+    return this.httpClient.get<Cours[]>(`${baseUrl}courBytitle/${title}`);
   }
 
   getCours(id: number): Observable<Cours>{
@@ -42,7 +42,7 @@ export class CoursService {
   }
 
   getCountP(): Observable<number>{
-    return this.httpClient.get<number>(`${baseUrl}positive`);
+    return this.httpClient.get<number>(`${baseUrl}possitive`);
   }
 
   getCountN(): Observable<number>{

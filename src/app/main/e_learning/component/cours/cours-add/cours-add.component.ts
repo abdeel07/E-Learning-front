@@ -1,19 +1,30 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Category } from 'app/main/e_learning/model/category';
 import { Cours } from 'app/main/e_learning/model/cours';
 import { Skill } from 'app/main/e_learning/model/skill';
 import { CategoryService } from 'app/main/e_learning/service/category.service';
 import { CoursService } from 'app/main/e_learning/service/cours.service';
 import { SkillService } from 'app/main/e_learning/service/skill.service';
+import { repeaterAnimation } from './cours-add.animation';
 
 @Component({
   selector: 'app-cours-add',
   templateUrl: './cours-add.component.html',
-  styleUrls: ['./cours-add.component.scss']
+  styleUrls: ['./cours-add.component.scss'],
+  encapsulation: ViewEncapsulation.None,
+  animations: [repeaterAnimation]
 })
 export class CoursAddComponent implements OnInit {
 
-  cours?: Cours;
+  cours?: Cours = {
+    id: 0,
+    title: "",
+    categoryId: 0,
+    skills : [],
+    comments: [],
+    description: "",
+    img: ""
+  };
   skills: Skill[];
   categories : Category[];
   
@@ -59,10 +70,12 @@ export class CoursAddComponent implements OnInit {
   }
 
   onSubmit(){
+    console.error(this.cours);
     this.coursService.addCourse(this.cours).subscribe(
       {
         next: (response: any) => {
           //Toast
+          this.cours = response;
         },
         error: (err) => {
           console.error(err);

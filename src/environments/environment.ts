@@ -8,10 +8,10 @@ export const environment = {
 
   apiUrl: 'http://localhost:4000',
   
-  apiCategory: 'http://localhost:8000/api/category/',
-  apiComment: 'http://localhost:8000/api/comment/',
-  apiCours: 'http://localhost:8000/api/cours/',
-  apiSkill: 'http://localhost:8000/api/skill/',
+  apiCategory: 'https://localhost:7192/api/categories/',
+  apiComment: 'https://localhost:7192/api/comments/',
+  apiCours: 'https://localhost:7192/api/cours/',
+  apiSkill: 'https://localhost:7192/api/skills/',
 };
 
 /*

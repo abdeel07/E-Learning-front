@@ -15,6 +15,13 @@ export const menu: CoreMenu[] = [
     icon: "shopping-cart",
     children: [
       {
+        id: 'dash',
+        title: 'Dashboard',
+        type: 'item',
+        icon: 'shopping-cart',
+        url: "dash",
+      },
+      {
         id: 'cours',
         title: 'Add Cours',
         type: 'item',

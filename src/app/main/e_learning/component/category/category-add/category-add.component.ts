@@ -9,7 +9,12 @@ import { CategoryService } from 'app/main/e_learning/service/category.service';
 })
 export class CategoryAddComponent implements OnInit {
 
-  category : Category;
+  category : Category = {
+    id: 0,
+    title: "",
+    description: "",
+    img: ""
+  };
 
   constructor(
     private categoryService: CategoryService
@@ -19,10 +24,12 @@ export class CategoryAddComponent implements OnInit {
   }
 
   onSubmit(){
+    console.error(this.category);
     this.categoryService.addCategory(this.category).subscribe(
       {
         next : (response : any) => {
           //toast
+          this.category = response;
         },
         error: (err) => {
           console.error(err);

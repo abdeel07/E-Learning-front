@@ -14,7 +14,7 @@ export class CommentService {
   constructor(private httpClient: HttpClient) { }
 
   getComments(id: number): Observable<Comment[]> {
-    return this.httpClient.get<Comment[]>(`${baseUrl}?cours=${id}`);
+    return this.httpClient.get<Comment[]>(`${baseUrl}byCours/${id}`);
   }
 
   addComment(comment: Comment): Observable<Comment> {
@@ -26,7 +26,7 @@ export class CommentService {
   }
 
   getPositive(): Observable<number> {
-    return this.httpClient.get<number>(`${baseUrl}positive`);
+    return this.httpClient.get<number>(`${baseUrl}possitive`);
   }
 
   getNegative(): Observable<number> {

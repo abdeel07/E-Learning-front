@@ -17,7 +17,7 @@
             </div>
             <div>
               <button type="button" class="btn btn-icon rounded-circle btn-primary mr-1" data-toggle="tooltip"
-                data-placement="top" (click)="modalOpen(modalPrimaryadd)" title="add project" rippleEffect>
+                data-placement="top" (click)="modalOpen(modalPrimaryadd)" title="Add skill" rippleEffect>
                 <span [data-feather]="'plus'"></span>
               </button>
             </div>
@@ -27,7 +27,7 @@
             [footerHeight]="50" [rowHeight]="45" rowHeight="auto" [rows]="data" [limit]="basicSelectedOption"
             [columnMode]="ColumnMode.force">
   
-            <ngx-datatable-column name="skill Name" prop="name"
+            <ngx-datatable-column name="Skill Name" prop="title"
               headerClass="d-flex align-items-center justify-content-center"
               cellClass="d-flex align-items-center justify-content-center">
             </ngx-datatable-column>

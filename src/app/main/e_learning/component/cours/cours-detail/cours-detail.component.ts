@@ -14,7 +14,15 @@ import { CoursService } from 'app/main/e_learning/service/cours.service';
 export class CoursDetailComponent implements OnInit {
 
   coursId: number = this.route.snapshot.params["cours_id"];
-  cours?: Cours;
+  cours?: Cours = {
+    categoryId: 0,
+    comments: [],
+    description: "",
+    id: 0,
+    img: "",
+    skills: [],
+    title: ""
+  }
   comment : Comment;
 
   commentForm = new FormGroup({
@@ -31,6 +39,7 @@ export class CoursDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.getCours();
+    this.getComment();
   }
 
   getCours() {
@@ -44,6 +53,16 @@ export class CoursDetailComponent implements OnInit {
         }
       }
     );
+  }
+
+  getComment(){
+    this.commentService.getComments(this.coursId).subscribe(
+      {
+        next : (response : any) => {
+          this.cours.comments = response;
+        }
+      }
+    )
   }
 
   onSubmit(){

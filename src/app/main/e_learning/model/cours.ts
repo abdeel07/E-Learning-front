@@ -9,7 +9,7 @@ export class Cours {
     skills : Skill[];
     description : string;
     img : string;
-    category : Category;
+    categoryId : number;
 
     constructor(id : number , title : string , comments : Comment[], skills : Skill[] ){
 

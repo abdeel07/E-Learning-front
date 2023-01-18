@@ -57,16 +57,20 @@ export class SkillListComponent implements OnInit {
   }
 
   getByTitle(){
-    this.skillService.getByTitle(this.title).subscribe(
-      {
-        next : (response: any) =>{
-          this.data = response;
-        },
-        error: (err) => {
-          console.error(err);
-        },
-      }
-    );
+    if(this.title != ""){
+      this.skillService.getByTitle(this.title).subscribe(
+        {
+          next : (response: any) =>{
+            this.data = response;
+          },
+          error: (err) => {
+            console.error(err);
+          },
+        }
+      );
+    }
+    else
+      this.getSkills();
   }
 
   addSkill(){

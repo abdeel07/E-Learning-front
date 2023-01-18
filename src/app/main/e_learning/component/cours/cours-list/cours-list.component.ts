@@ -30,15 +30,19 @@ export class CoursListComponent implements OnInit {
   }
 
   getByTitle(){
-    this.coursService.getByTitle(this.searchText).subscribe(
-      {
-        next: (data: any) => {
-          this.courses = data;
-        },
-        error:(err) => {
-            console.log(err);
-        },
-      }
-    )
+    if(this.searchText != ""){
+      this.coursService.getByTitle(this.searchText).subscribe(
+        {
+          next: (data: any) => {
+            this.courses = data;
+          },
+          error:(err) => {
+              console.log(err);
+          },
+        }
+      )
+    }
+    else
+      this.getCourses();
   }
 }
